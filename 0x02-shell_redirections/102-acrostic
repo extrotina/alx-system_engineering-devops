@@ -1,0 +1,2 @@
+#!/bin/bash
+awk '{ decoded = decoded $1 } END { print decoded }'
