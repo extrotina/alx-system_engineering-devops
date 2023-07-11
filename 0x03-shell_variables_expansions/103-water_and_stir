@@ -1,13 +1,2 @@
 #!/bin/bash
-
-# Convert the numbers from base water and base stir to decimal
-water_dec=$(echo "$WATER" | tr 'ewatrr' '012345')
-stir_dec=$(echo "$STIR" | tr 'ti.rt' '01234')
-
-# Add the decimal numbers
-sum_dec=$((water_dec + stir_dec))
-
-# Convert the sum to base bestchol
-sum_bestchol=$(echo "$sum_dec" | awk '{ printf "%s%s%s%s%s%s%s", $1, $1, $1, $1, $1, $1, $1 }')
-
-echo "$sum_bestchol"
+printf "%o\n" $((5#$(echo $WATER | tr 'water' '01234') + 5#$(echo $STIR | tr 'stir.' '01234'))) | tr '01234567' 'bestchol'
